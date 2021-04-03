@@ -3,40 +3,43 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class AboutHashes < Neo::Koan
   def test_creating_hashes
     empty_hash = Hash.new
-    assert_equal __, empty_hash.class
-    assert_equal(__, empty_hash)
-    assert_equal __, empty_hash.size
+    assert_equal Hash, empty_hash.class
+    assert_equal({}, empty_hash)
+    assert_equal 0, empty_hash.size
   end
 
   def test_hash_literals
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash.size
+    assert_equal 2, hash.size
   end
 
   def test_accessing_hashes
     hash = { :one => "uno", :two => "dos" }
-    assert_equal __, hash[:one]
-    assert_equal __, hash[:two]
-    assert_equal __, hash[:doesnt_exist]
+    assert_equal "uno", hash[:one]
+    assert_equal "dos", hash[:two]
+    assert_equal nil, hash[:doesnt_exist]
   end
 
   def test_accessing_hashes_with_fetch
     hash = { :one => "uno" }
-    assert_equal __, hash.fetch(:one)
-    assert_raise(___) do
+    assert_equal "uno", hash.fetch(:one)
+    assert_raise(KeyError) do
       hash.fetch(:doesnt_exist)
     end
 
     # THINK ABOUT IT:
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
+    # Using #fetch means the hash will not return nil in the case of a missing key. Instead it’ll raise a KeyError. 
+    # You want the code to raise an exception at the point where the data is found to be missing, not when that value is used.
+
   end
 
   def test_changing_hashes
     hash = { :one => "uno", :two => "dos" }
     hash[:one] = "eins"
 
-    expected = { :one => __, :two => "dos" }
+    expected = { :one => "eins", :two => "dos" }
     assert_equal __, hash
 
     # Bonus Question: Why was "expected" broken out into a variable
