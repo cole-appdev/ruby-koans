@@ -30,8 +30,8 @@ class AboutHashes < Neo::Koan
     # THINK ABOUT IT:
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
-      # Using #fetch means the hash will not return nil in the case of a missing key. Instead it’ll raise a KeyError. 
-      # You want the code to raise an exception at the point where the data is found to be missing, not when that value is used.
+    # Using #fetch means the hash will not return nil in the case of a missing key. Instead it’ll raise a KeyError. 
+    # You want the code to raise an exception at the point where the data is found to be missing, not when that value is used.
 
   end
 
@@ -40,7 +40,7 @@ class AboutHashes < Neo::Koan
     hash[:one] = "eins"
 
     expected = { :one => "eins", :two => "dos" }
-    assert_equal {:one=>"eins", :two =>"dos"}, hash
+    assert_equal expected, hash
 
     # Bonus Question: Why was "expected" broken out into a variable
     # rather than used as a literal?
