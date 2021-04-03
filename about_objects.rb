@@ -2,11 +2,11 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutObjects < Neo::Koan
   def test_everything_is_an_object
-    assert_equal __, 1.is_a?(Object)
-    assert_equal __, 1.5.is_a?(Object)
-    assert_equal __, "string".is_a?(Object)
-    assert_equal __, nil.is_a?(Object)
-    assert_equal __, Object.is_a?(Object)
+    assert_equal 1.kind_of?(Object), 1.is_a?(Object)
+    assert_equal 1.5.kind_of?(Object), 1.5.is_a?(Object)
+    assert_equal "string".kind_of?(Object), "string".is_a?(Object)
+    assert_equal nil.kind_of?(Object), nil.is_a?(Object)
+    assert_equal Object.kind_of?(Object), Object.is_a?(Object)
   end
 
   def test_objects_can_be_converted_to_strings
