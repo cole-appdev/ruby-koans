@@ -15,6 +15,18 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+
+  if a<=0 || b<=0 || c<=0
+    raise TriangleError
+  end
+  
+  # Sort the sides and remove the largest side as the hypotenuse
+  sides = [a,b,c].sort.reverse
+  hyp = sides.shift
+  if sides[0] + sides[1] <= hyp
+    raise TriangleError
+  end
+
   if [a,b,c].uniq.length == 1
     return :equilateral
   elsif [a,b,c].uniq.length == 2
