@@ -29,9 +29,9 @@ class Proxy
 	end
 
   # WRITE CODE HERE
-  def method_missing(method, *args)
+  def method_missing(method, *args, &block)
     @messages << method
-    @object.send(method, *args)
+    @object.send(method, *args, &block)
   end
   
 end
